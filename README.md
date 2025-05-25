@@ -103,20 +103,20 @@ DATABASE_URL="postgresql://user:password@localhost:5432/stampy"
 
 ### 3. 依存関係のインストール
 
-```
+```bash
 npm install
 ```
 
 ### 4. Prisma マイグレーションと生成
 
-```
+```bash
 npx prisma migrate dev --name init
 npx prisma generate
 ```
 
 ### 5. 開発サーバー起動
 
-```
+```bash
 npm run dev
 ``` 
 
