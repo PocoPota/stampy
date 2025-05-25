@@ -3,6 +3,8 @@ import { Noto_Sans_JP } from 'next/font/google';
 import "./globals.css";
 import { SupabaseProvider } from "./providers";
 
+import Header from "@/components/ui/Header";
+
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -26,6 +28,7 @@ export default function RootLayout({
          className="font-sans"
       >
         <SupabaseProvider>
+          <Header/>
         {children}
         </SupabaseProvider>
       </body>
