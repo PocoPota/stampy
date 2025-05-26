@@ -1,11 +1,15 @@
-"use client"
+"use client";
 
+import LogoutButton from "@/components/LogoutButton";
 import { useUser } from "@supabase/auth-helpers-react";
 
 export default function Home() {
   const user = useUser();
-  if (user) {
-    console.log("ログイン中:", user.email);
-  }
-  return <div>勤怠管理アプリ</div>;
+  
+  return (
+    <main>
+      <div>勤怠管理アプリ</div>
+      {user && <LogoutButton />}
+    </main>
+  );
 }

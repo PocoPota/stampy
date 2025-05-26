@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import LoginButton from "./LoginButton";
 
 export default function Header() {
   const user = useUser();
@@ -22,7 +23,7 @@ export default function Header() {
 
       <div>
         {!user ? (
-          <Button onClick={handleLogin}>ログイン</Button>
+          <LoginButton/>
         ) : (
           <Image
             src={user.user_metadata.avatar_url}

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
-export default function LoginPage() {
+export default function LoginButton() {
   const user = useUser();
   const router = useRouter();
 
@@ -14,7 +14,7 @@ export default function LoginPage() {
     if (user) {
       router.push("/");
     }
-  }, [user, router]);
+  }, [user]);
 
   const handleLogin = async () => {
     await supabase.auth.signInWithOAuth({
@@ -23,10 +23,8 @@ export default function LoginPage() {
   };
 
   return (
-    <main>
-      <Button onClick={handleLogin} className="mt-10">
-        Googleでログイン
-      </Button>
-    </main>
+    <Button onClick={handleLogin} className="cursor-pointer">
+      ログイン
+    </Button>
   );
 }
