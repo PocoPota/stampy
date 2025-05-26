@@ -3,7 +3,7 @@ import { Noto_Sans_JP } from 'next/font/google';
 import "./globals.css";
 import { SupabaseProvider } from "./providers";
 
-import Header from "@/components/ui/Header";
+import Header from "@/components/Header";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
