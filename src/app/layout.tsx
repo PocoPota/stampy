@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from 'next/font/google';
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { SupabaseProvider } from "./providers";
 
 import Header from "@/components/Header";
 
 const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['100', '300', '400', '500', '700', '900'],
-  variable: '--font-noto',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-noto",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable}`}>
-      <body
-         className="font-sans"
-      >
+      <body className="font-sans">
         <SupabaseProvider>
-          <Header/>
-        {children}
+          <Header />
+          <main className="w-sm mx-auto">{children}</main>
         </SupabaseProvider>
       </body>
     </html>

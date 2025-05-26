@@ -4,6 +4,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Header() {
   const user = useUser();
@@ -14,8 +15,10 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 shadow-md bg-white">
-      <h1 className="text-xl font-bold text-gray-800">Stampy</h1>
+    <header className="flex items-center justify-between px-4 py-3 bg-white w-sm mx-auto">
+      <h1 className="text-xl font-bold text-gray-800">
+        <Link href={"/"}>Stampy</Link>
+      </h1>
 
       <div>
         {!user ? (
