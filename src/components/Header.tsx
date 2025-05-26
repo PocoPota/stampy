@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 bg-white w-sm mx-auto">
+    <header className="flex items-center justify-between px-4 py-3 bg-white">
       <h1 className="text-xl font-bold text-gray-800">
         <Link href={"/"}>Stampy</Link>
       </h1>

@@ -24,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable}`}>
-      <body className="font-sans">
+      <body className="font-sans w-sm mx-auto">
         <SupabaseProvider>
           <Header />
-          <main className="w-sm mx-auto">{children}</main>
+          <main>{children}</main>
         </SupabaseProvider>
       </body>
     </html>
