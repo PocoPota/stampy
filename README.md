@@ -120,6 +120,10 @@ npx prisma generate
 npm run dev
 ``` 
 
+```bash
+npx prisma studio
+```
+
 ---
 
 ## 🧪 今後の開発予定
