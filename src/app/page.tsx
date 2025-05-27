@@ -1,18 +1,40 @@
 "use client";
 
+import HourlyRateForm from "@/components/HourlyRateForm";
 import LogoutButton from "@/components/LogoutButton";
 import WorkToggleButton from "@/components/WorkToggleButton";
 import { useUser } from "@supabase/auth-helpers-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export default function Home() {
   const user = useUser();
 
   return (
     <main className="flex flex-col gap-3">
-      <section>
+      <section className="text-center">
         <WorkToggleButton />
       </section>
-      <section>{user && <LogoutButton />}</section>
+      <section>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>時給の更新</AccordionTrigger>
+            <AccordionContent>
+              <HourlyRateForm/>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>ログアウト</AccordionTrigger>
+            <AccordionContent>
+              {user && <LogoutButton/>}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
     </main>
   );
 }
