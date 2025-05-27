@@ -3,17 +3,12 @@
 import { useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import LoginButton from "./LoginButton";
 
 export default function Header() {
   const user = useUser();
   const router = useRouter();
-
-  const handleLogin = () => {
-    router.push("/login");
-  };
 
   return (
     <header className="flex items-center justify-between px-4 py-3 bg-white">
