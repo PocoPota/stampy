@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className="font-sans w-sm mx-auto bg-white min-h-[100vh]">
         <SupabaseProvider>
           <Header />
-          <main className="px-4">{children}</main>
+          <main className="px-4 mt-4">{children}</main>
         </SupabaseProvider>
       </body>
     </html>
