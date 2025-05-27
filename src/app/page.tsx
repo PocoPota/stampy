@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col gap-3">
-      <section className="text-center">
+      <section className="text-center mt-5">
         <WorkToggleButton />
       </section>
       <section>
