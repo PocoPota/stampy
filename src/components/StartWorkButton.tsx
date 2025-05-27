@@ -34,7 +34,7 @@ export default function StartWorkButton({ onStart }: Props) {
   };
 
   return (
-    <Button onClick={handleStartWork} disabled={loading}>
+    <Button onClick={handleStartWork} disabled={loading} className="cursor-pointer">
       {loading ? "記録中..." : "労働開始"}
     </Button>
   );

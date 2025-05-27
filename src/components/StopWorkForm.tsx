@@ -99,7 +99,7 @@ export default function StopWorkForm({ onComplete }: Props) {
       </div>
 
       {!showForm ? (
-        <Button onClick={handleStopClick}>労働終了</Button>
+        <Button onClick={handleStopClick} className="cursor-pointer">労働終了</Button>
       ) : (
         <>
           <Textarea
@@ -107,7 +107,7 @@ export default function StopWorkForm({ onComplete }: Props) {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="仕事内容を入力してください"
           />
-          <Button onClick={handleSubmit} disabled={loading}>
+          <Button onClick={handleSubmit} disabled={loading} className="cursor-pointer">
             {loading ? "記録中..." : "完了"}
           </Button>
         </>
