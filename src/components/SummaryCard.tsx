@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useUser } from "@supabase/auth-helpers-react";
 import { supabase } from "@/lib/supabase";
 import { format, differenceInMinutes } from "date-fns";
+import Link from "next/link";
 
 interface WorkRecord {
   id: string;
@@ -77,16 +78,11 @@ export default function SummaryCard() {
         </div>
 
         <div>
-          <p className="text-sm text-gray-500">直近の記録</p>
-          <ul className="mt-2 space-y-2">
-            {records.slice(0, 5).map((r) => (
-              <li key={r.id} className="text-sm text-gray-700">
-                {format(new Date(r.startTime), "MM/dd HH:mm")} -{" "}
-                {r.endTime ? format(new Date(r.endTime), "HH:mm") : "進行中"}｜
-                ¥{(r.wage ?? 0).toLocaleString()}｜{r.description || "（無記入）"}
-              </li>
-            ))}
-          </ul>
+          <p className="text-sm text-gray-500">
+            <Link href="/record">
+              記録を全て見る→
+            </Link>
+            </p>
         </div>
       </CardContent>
     </Card>
