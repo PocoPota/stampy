@@ -10,6 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import SummaryCard from "@/components/SummaryCard";
+import MonthlySummaryTable from "@/components/MonthlySummaryTable";
 
 export default function Home() {
   const user = useUser();
@@ -18,6 +20,12 @@ export default function Home() {
     <main className="flex flex-col gap-3">
       <section className="text-center">
         <WorkToggleButton />
+      </section>
+      <section>
+        <SummaryCard/>
+      </section>
+      <section>
+        <MonthlySummaryTable/>
       </section>
       <section>
         <Accordion type="single" collapsible>
