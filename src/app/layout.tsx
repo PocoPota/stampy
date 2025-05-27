@@ -23,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJP.variable}`}>
-      <body className="font-sans w-sm mx-auto">
+    <html lang="ja" className={`${notoSansJP.variable} bg-black min-h-full`}>
+      <body className="font-sans w-sm mx-auto bg-white min-h-[100vh]">
         <SupabaseProvider>
           <Header />
-          <main>{children}</main>
+          <main className="px-4">{children}</main>
         </SupabaseProvider>
       </body>
     </html>
