@@ -3,6 +3,7 @@
 import { useUser } from "@supabase/auth-helpers-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { CircleButton } from "./CircleButton";
 
 type Props = {
   onStart: () => void;
@@ -34,8 +35,8 @@ export default function StartWorkButton({ onStart }: Props) {
   };
 
   return (
-    <Button onClick={handleStartWork} disabled={loading} className="cursor-pointer">
+    <CircleButton onClick={handleStartWork} disabled={loading} className="cursor-pointer">
       {loading ? "記録中..." : "労働開始"}
-    </Button>
+    </CircleButton>
   );
 }
