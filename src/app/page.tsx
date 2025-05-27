@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/accordion"
 import SummaryCard from "@/components/SummaryCard";
 import MonthlySummaryTable from "@/components/MonthlySummaryTable";
+import SummaryTabs from "@/components/SummaryTabs";
 
 export default function Home() {
   const user = useUser();
@@ -22,10 +23,11 @@ export default function Home() {
         <WorkToggleButton />
       </section>
       <section>
-        <SummaryCard/>
+        {/* <MonthlySummaryTable/> */}
+        <SummaryTabs/>
       </section>
       <section>
-        <MonthlySummaryTable/>
+        <SummaryCard/>
       </section>
       <section>
         <Accordion type="single" collapsible>
