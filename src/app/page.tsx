@@ -11,7 +11,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import SummaryCard from "@/components/SummaryCard";
-import MonthlySummaryTable from "@/components/MonthlySummaryTable";
 import SummaryTabs from "@/components/SummaryTabs";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <WorkToggleButton />
       </section>
       <section>
-        {/* <MonthlySummaryTable/> */}
         <SummaryTabs/>
       </section>
       <section>
