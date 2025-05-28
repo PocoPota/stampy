@@ -27,55 +27,29 @@
 
 ---
 
-## 📁 ディレクトリ構成
-
-<pre>
-/app
-  ├─ layout.tsx                # 全体レイアウト
-  ├─ page.tsx                  # ホームページ（ログインボタン）
-  ├─ dashboard/page.tsx        # 記録一覧ダッシュボード
-  ├─ record/page.tsx           # 打刻ページ
-  └─ settings/page.tsx         # 時給設定ページ
-
-/components
-  ├─ Timer.tsx
-  ├─ WorkLogForm.tsx
-  └─ Button.tsx など UI コンポーネント群
-
-/lib
-  ├─ supabase.ts
-  ├─ prisma.ts
-  └─ auth.ts
-
-/hooks
-  └─ useTimer.ts
-
-/context
-  └─ UserContext.tsx
-</pre>
-
----
-
 ## 📦 Prisma モデル
 
 ```prisma
-model WorkLog {
-  id          String   @id @default(cuid())
+model WorkRecord {
+  id          String    @id @default(cuid())
   userId      String
   startTime   DateTime
   endTime     DateTime?
-  description String?
-  wageAtTime  Int
-  createdAt   DateTime @default(now())
+  description String    @default("")
+  hourlyRate  Int
+  wage        Int?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id])
 
-  user        User     @relation(fields: [userId], references: [id])
+  @@index([userId])
+  @@index([endTime])
 }
 
 model User {
-  id        String   @id
-  email     String   @unique
-  wage      Int      @default(1000)
-  workLogs  WorkLog[]
+  id         String       @id
+  hourlyRate Int
+  records    WorkRecord[]
 }
 ```
 
@@ -86,7 +60,7 @@ model User {
 ### 1. リポジトリのクローン
 
 ```bash
-git clone https://github.com/your-username/stampy.git
+git clone https://github.com/PocoPota/stampy.git
 cd stampy
 ```
 
@@ -96,9 +70,7 @@ cd stampy
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-DATABASE_URL="postgresql://user:password@localhost:5432/stampy"
+DATABASE_URL=your-database-url
 ```
 
 ### 3. 依存関係のインストール
@@ -123,11 +95,3 @@ npm run dev
 ```bash
 npx prisma studio
 ```
-
----
-
-## 🧪 今後の開発予定
-
-- モバイル対応（PWA 対応）
-- 月ごとのレポート出力（CSV等）
-- リマインダー機能（通知API）
