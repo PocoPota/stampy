@@ -5,6 +5,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import { supabase } from "@/lib/supabase";
 import { format } from "date-fns";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface WorkRecord {
@@ -43,7 +44,16 @@ export default function WorkRecordList() {
   return (
     <Card className="w-full max-w-4xl mx-auto mt-6 p-4">
       <CardContent>
-        <h2 className="text-xl font-bold mb-4">これまでの記録一覧</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold">これまでの記録一覧</h2>
+          {user && (
+            <Button variant="outline" size="sm" asChild>
+              <a href={`/api/export/csv?userId=${user.id}`} download>
+                CSVエクスポート
+              </a>
+            </Button>
+          )}
+        </div>
         <ScrollArea className="h-[400px] pr-2">
           <table className="w-full text-sm text-left">
             <thead className="border-b">
